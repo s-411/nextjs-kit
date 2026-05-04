@@ -154,6 +154,209 @@ repo root — never prefix with cd <repo>.
 
 ---
 
+## Stage 4.5 — Component Library + Brand Guidelines
+
+Paste this:
+
+```
+SKILLS: Use design-consistency skill between batches. Use self-check skill
+for the final audit.
+
+This is the Stage 4.5 component library + brand guidelines build. Stage 4
+(tokenization) must be complete before any work in this stage. If Stage 4
+is not yet signed off, STOP and tell me — do not improvise.
+
+Goal: pre-emptively build every UI primitive the app might ever need,
+composed against the @theme tokens from Stage 4, plus a brand guidelines
+page that documents the entire visual vocabulary. Stage 7 bulk build will
+then become pure composition from this library.
+
+Soft gate: this stage is strongly recommended before Stage 7. Override
+pattern: I explicitly say "skip Stage 4.5" or "override the soft gate" —
+in which case proceed and surface a one-line caveat in your response
+noting the override.
+
+Process:
+
+1. ROUTE PHASE
+   - Add a /components route. Add a sidebar nav entry pointing at it in
+     the dashboard layout (or wherever the app's primary nav lives).
+   - Ask me: "Should /components be visible in production, or dev-only?
+     Default is dev-only — gated behind a NODE_ENV check or a feature
+     flag." Wait for my answer before wiring visibility.
+
+2. BRAND GUIDELINES PHASE (Batch 0)
+   Build /components/brand-guidelines (or /components as the index page).
+   Render the entire visual vocabulary, all consuming @theme tokens:
+   - Palette: every color token shown as a swatch, in BOTH light and dark
+     mode side-by-side. Token name + value visible.
+   - Type scale: every text size with sample copy. Display sizes,
+     headings, body, captions, eyebrow, button labels.
+   - Spacing scale: visual ruler showing every spacing token.
+   - Radius scale: visual examples (rounded boxes at each radius token).
+   - Shadow scale: every elevation token rendered.
+   - Motion notes: transition timing + easing curve principles.
+   - Iconography notes: stroke weight, sizing, source library.
+
+3. SCOPE PHASE
+   Ask me:
+     "Do you have a list of components to build, or should I work from
+      the comprehensive default list?"
+
+   COMPREHENSIVE DEFAULT LIST — 19 batches, build in order. Run
+   design-consistency skill audit between each batch.
+
+   Batch 1 — Typography
+   Display XL / display LG / heading XL / heading LG / heading MD /
+   heading SM / body LG / body MD / body SM / eyebrow / caption /
+   button label. Each shown in light and dark.
+
+   Batch 2 — Buttons
+   Every variant × every size × every state. Variants: primary,
+   secondary, tertiary, destructive, with-icon, icon-only, loading.
+   Sizes: sm / md / lg. States: default / hover / focus-visible /
+   active / disabled / loading. Plus button groups and tab navigation
+   (segmented control).
+
+   Batch 3 — Form elements (part 1)
+   Text input, textarea, number input, password input, search input,
+   email input. Each with: default / focus / error / disabled /
+   with-prefix-icon / with-suffix-icon / with-helper-text /
+   with-error-message / with-character-count.
+
+   Batch 4 — Form elements (part 2)
+   Select / multi-select / combobox / dropdown menu, radio group,
+   checkbox + checkbox group, switch / toggle, slider (range single +
+   double-handle), rating input, tag input (chip-style with add +
+   remove), file uploader (drag-and-drop + button-trigger +
+   with-progress).
+
+   Batch 5 — Form elements (part 3) — date and time
+   Date picker (single + range), time picker, datetime picker, calendar
+   (month + year view), recurring schedule input.
+
+   Batch 6 — Cards
+   Base card, stat card (candy-tile), feature card, pricing card,
+   testimonial card, profile card, content card with image, action
+   card, expandable card, sortable / draggable card.
+
+   Batch 7 — Lists, dividers, layout patterns
+   Bulleted list, numbered list, definition list, horizontal divider,
+   vertical divider, section divider with label, two-column layout,
+   three-column layout, sidebar + main layout, hero pattern, stacked-
+   section pattern, container max-widths reference.
+
+   Batch 8 — Status, badges, tags
+   Status pill (success / warning / error / info / neutral / pending /
+   processing / live), badge (numeric, dot indicator), tag (removable,
+   with icon, colored), avatar with status dot, kbd shortcut display.
+
+   Batch 9 — Avatars, social, activity feeds
+   Avatar (every size, with image / initials / status dot / ring),
+   avatar group (stacked + row), user card / hover card, activity feed
+   item, social proof block, follower count display, comment thread,
+   mention chip.
+
+   Batch 10 — Navigation
+   Sidebar nav item (default / active / hover / with badge / collapsed),
+   sidebar dropdown / nested nav, top bar / app bar, breadcrumbs,
+   pagination (numbered + load-more + infinite-scroll trigger), tabs
+   (underline + pill + segmented), command menu / cmd-k palette, mobile
+   drawer / hamburger menu pattern.
+
+   Batch 11 — Feedback (alerts, notifications, modals)
+   Alert (inline, every severity), banner (page-level), toast / snackbar
+   (every position + auto-dismiss + action), modal / dialog (every
+   size, confirmation pattern), drawer / sheet (left + right + bottom),
+   popover, tooltip, hover card, destructive-action confirmation
+   pattern.
+
+   Batch 12 — Progress and loading
+   Linear progress, circular progress, indeterminate spinner, skeleton
+   loader (text line, card, avatar, table row), step indicator /
+   stepper / wizard progress, multi-step form pattern.
+
+   Batch 13 — Data tables
+   Basic table, sortable, filterable, paginated, with row actions, with
+   bulk actions, with expandable rows, with sticky header, empty-state
+   row, loading-state rows.
+
+   Batch 14 — Charts and data visualization (Recharts via shadcn/ui)
+   Line, area, bar, stacked bar, horizontal bar, pie / donut, sparkline,
+   KPI tile (number + delta + sparkline), gauge / progress ring, heat
+   map. Both light and dark.
+
+   Batch 15 — Empty / error / loading states
+   Empty state (illustration / icon + headline + body + CTA), error
+   state (retry), 404 / 500 page, loading page, success state,
+   zero-data state.
+
+   Batch 16 — Pricing and commerce
+   Pricing card (3-tier + variants), pricing toggle (annual / monthly),
+   feature comparison table, plan upgrade prompt, checkout summary
+   block, order item row, coupon code input, payment method card,
+   receipt summary.
+
+   Batch 17 — Interactive controls (advanced)
+   Range slider with input sync, dual-handle range slider, color picker,
+   accordion (single + multiple + with icon), expandable section,
+   collapsible group, toggle group, segmented control.
+
+   Batch 18 — Metrics, rankings, achievements
+   Leaderboard row, ranking position display (1st / 2nd / 3rd),
+   achievement badge, milestone marker, trophy / award display, streak
+   counter, level indicator, progress-to-goal display.
+
+   Batch 19 — Media and content
+   Image with caption, image gallery (grid + carousel), video player
+   wrapper, audio player wrapper, file display (icon + name + size +
+   actions), download button pattern, share button pattern (native +
+   copy-link), QR code display, embedded content frame.
+
+4. BUILD PHASE
+   Build batches in order. For each batch:
+   - Each component renders on a sub-page or section of /components
+     with the full variant matrix visible (sizes × variants × states).
+   - All values flow through @theme tokens — NO raw colors, NO raw
+     spacing, NO inline arbitrary values like bg-[#abc].
+   - Light and dark modes both verified.
+   - At the end of the batch, invoke design-consistency skill in audit
+     mode against just the new batch. Resolve any drift before moving
+     on.
+   - Return a per-batch summary: components added, files touched,
+     design-consistency result. Don't batch summaries across batches.
+
+5. TOKEN GAP PHASE (after all batches)
+   The build will surface tokens that didn't exist after Stage 4 —
+   semantic colors for alert states (success/warning/error/info), focus
+   rings, disabled states, chart palettes, etc. Compile a list:
+     - Token name (proposed)
+     - Where it's used in the library
+     - Light + dark values
+   Stop. Wait for my approval before adding to @theme.
+
+6. After my approval — TOKEN UPDATE PHASE:
+   - Add the new tokens to globals.css @theme block.
+   - Refactor any library components currently using raw values for
+     these states to consume the new tokens.
+   - Update the brand guidelines page (Batch 0) to reflect the final
+     token set — palette swatches, etc., now include the new additions.
+
+7. FINAL AUDIT PHASE
+   - Invoke design-consistency skill across the entire /components
+     route. Confirm zero raw values remain.
+   - Invoke self-check skill in audit mode: every component renders,
+     every variant matrix is complete, light + dark both work, no
+     console errors on any /components sub-page.
+   - Return a final summary: total components built, batches completed,
+     new tokens added, design-consistency result, self-check result.
+
+Terminal commands you produce must assume the terminal is already in the
+repo root — never prefix with cd <repo>.
+```
+
+---
+
 ## Stage 5 — Auth Wiring
 
 The prompt branches based on the AUTH choice in `CLAUDE.md`. The agent reads `CLAUDE.md` first to determine which path.
@@ -333,6 +536,13 @@ SKILLS: Use design-consistency and self-check skills (per-repo,
 This is the Stage 7 bulk build. Stage 4 must be complete before any work in
 this stage. If Stage 4 (tokenization) is not yet signed off, STOP and tell
 me — do not improvise.
+
+Stage 4.5 (component library) is a SOFT gate before Stage 7. If /components
+exists and the library is built, compose from it by default — use existing
+primitives and only introduce new components on explicit need (and when you
+do, add them to /components so the library stays canonical). If Stage 4.5
+was skipped, surface a one-line caveat in your first response noting the
+override.
 
 Build the next batch of screens for this app. References for each screen
 are in app-references/images/, app-references/html/, and app-references/code/

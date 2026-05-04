@@ -86,6 +86,7 @@ Stop. Ask. Don't guess. The cost of asking is 30 seconds; the cost of guessing w
 | 2. Reference ingestion | ☐ | |
 | 3. First screens (1-4 anchor) | ☐ | |
 | 4. Tokenization (HARD GATE) | ☐ | |
+| 4.5. Component library + brand guidelines | ☐ | |
 | 5. Auth wiring | ☐ | |
 | 6. Backend + data | ☐ | |
 | 7. Bulk app build | ☐ | |

@@ -20,7 +20,7 @@
 
 These ship with the kit. Refresh via `npx degit s-411/nextjs-kit --force` in the repo root.
 
-- **design-consistency** — Stage 3, Stage 4, Stage 7, Stage 10. Audits new screens against the existing design system and Tailwind tokens to prevent visual drift.
+- **design-consistency** — Stage 3, Stage 4, Stage 4.5 (primary skill — runs between every component-library batch), Stage 7, Stage 10. Audits new screens against the existing design system and Tailwind tokens to prevent visual drift.
 - **self-check** — After any significant change. Claude reviews its own work before claiming a task done. Mandatory at Stage 11 gate.
 - **app-backend-builder** — Stage 6. Reads existing screens, infers domain, generates Convex schema + queries/mutations/actions plan.
 - **sentry-setup** — Stage 14. Add Sentry crash reporting from scratch. Wraps Sentry's wizard with kit-aware patterns.

@@ -139,7 +139,39 @@ This is the structural spine of the kit. Without this stage, the app's design sy
 
 **Skill:** `design-consistency` runs both before (to map what tokens are needed) and after (to verify zero raw values remain).
 
-**Out:** `globals.css` (or equivalent) has the full `@theme` block. Every Stage 3 screen has been refactored. Ready to bulk-build the rest of the app at Stage 7 — but first, auth (Stage 5) and backend (Stage 6) so Stage 7 builds against real data.
+**Out:** `globals.css` (or equivalent) has the full `@theme` block. Every Stage 3 screen has been refactored. Ready for Stage 4.5 (Component Library) next, then auth (Stage 5) and backend (Stage 6) before bulk build at Stage 7.
+
+---
+
+# Stage 4.5 — Component Library + Brand Guidelines (SOFT GATE, ~3–6 hrs/app)
+
+> **Numbering note:** Stage 4.5 uses the explicit `.5` numbering to insert this stage between the existing Stage 4 and Stage 5 without renumbering Stage 5–15. The `.5` signals "insert" and preserves the established 15-stage frame referenced throughout the kit.
+
+**Skip if:** EXISTING app already has a documented component library at `/components` (or equivalent) AND a brand guidelines page rendering the full visual vocabulary. Verify by visiting both routes before skipping.
+
+Post-hoc tokenization (Stage 4) extracts what the anchor screens happen to need. Stage 7 (bulk build) then introduces ad-hoc primitives screen by screen — the V1 modal at screen 7 looks slightly different from the V2 drawer at screen 12, tokens lag behind, and late-stage screens introduce raw values because the primitive doesn't exist yet.
+
+Pre-emptively building every primitive the app might ever need — against the already-tokenized values from Stage 4 — flips the dynamic. Stage 7 becomes pure composition: the agent gets told "build the Your Jobs page with a filterable table, status badges, and a side drawer for job details" and grabs primitives that already exist, getting it right first try.
+
+Secondary benefit: the brand guidelines page becomes canonical onboarding for future agents and humans entering the repo cold — they see the entire visual vocabulary on one page rather than reverse-engineering it from `globals.css`.
+
+### The soft gate:
+
+- Strongly recommended before Stage 7 bulk build. The agent surfaces a one-shot warning if you try to enter Stage 7 without Stage 4.5 signed off.
+- Override pattern: user explicitly says "skip Stage 4.5" or "override the soft gate" or equivalent. Agent then proceeds and surfaces a one-line caveat in the response (same override pattern as Stage 4).
+
+### Process:
+
+1. Add a `/components` route to the dashboard sidebar nav (confirm with user whether visible in prod or dev-only — default dev-only, can be flipped later).
+2. Build the brand guidelines page first (Batch 0): palette swatches in light + dark for every token, type scale with sample copy at every text size, spacing scale (visual ruler), radius scale, shadow scale, motion notes (transition timing + easing curves), iconography notes.
+3. Build components in batches of 6–10. Run `design-consistency` skill audit between batches.
+4. Each component renders on a sub-page or section of `/components` with the full variant matrix visible (sizes × variants × states).
+5. After all batches: surface any new tokens the build introduced (semantic colors for alert states, focus rings, disabled states, chart palettes), get user approval, add to `@theme`, update brand guidelines page to reflect final state.
+6. Final `design-consistency` + `self-check` audit across the whole library.
+
+**Skill:** `design-consistency` (per batch); `self-check` (final)
+
+**Out:** Component library complete. Brand guidelines page rendering. All Stage 7 bulk builds will compose from this library — agent uses existing primitives by default, introduces new components only on explicit need.
 
 ---
 
@@ -203,10 +235,12 @@ Wire the actual app domain logic. Convex is the default. Schema, queries, mutati
 
 This is where the bulk of screens get built — dashboards, settings, list views, detail views, modals, forms. Iterating from references in `app-references/`.
 
+Stage 7 bulk builds **compose from the Stage 4.5 component library**. The agent uses existing primitives by default; new components are introduced only on explicit need (and when introduced, get added to `/components` so the library stays canonical).
+
 ### Process:
 
 1. Paste prompt from `PROMPTS.md` Stage 7 with the next batch of references attached or staged
-2. Agent builds screens iteratively, one at a time
+2. Agent builds screens iteratively, one at a time, composing from the Stage 4.5 library
 3. Each screen consumes tokens from Stage 4 — no raw values
 4. Each screen wires to live Convex data from Stage 6 (or new schema additions if needed)
 5. Self-check after every 2-3 screens
@@ -428,6 +462,7 @@ The kit's job is done for this app. Maintenance, feature additions, and iteratio
 | 2 | Rarely | Only for spec-only builds with no visual references |
 | 3 | If existing | EXISTING app with working pages |
 | 4 | If existing | EXISTING app with full `@theme` coverage |
+| 4.5 | If existing | EXISTING app with documented component library + brand guidelines page |
 | 5 | If auth=none | Static sites only |
 | 6 | If existing | EXISTING app with full Convex backend |
 | 7 | If small app | Apps with ≤5 screens covered by Stage 3 |

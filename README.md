@@ -1,6 +1,6 @@
 # nextjs-kit
 
-**Version: v1**
+**Version: v1.1**
 
 Canonical source for the Next.js app factory drop-in kit. Ships as plain files — drop them into any app repo to align it with the master pipeline.
 
@@ -31,15 +31,15 @@ shadcn/ui is opt-in (only when graphs or complex form primitives are needed).
 15 stages, defined in `PROCESS_GUIDE.md`:
 
 ```
-0. Stack lock         8. Billing
-1. Repo spin-up       9. Email
-2. Reference ingest   10. Legal + landing
-3. First screens      11. Self-check gate
+0. Stack lock                       8. Billing
+1. Repo spin-up                     9. Email
+2. Reference ingest                 10. Legal + landing
+3. First screens                    11. Self-check gate
 4. Tokenization (HARD GATE)
-                      12. Domain wiring
-5. Auth wiring        13. Analytics
-6. Backend + data     14. Sentry
-7. Bulk app build     15. Final QA + handoff
+4.5. Component library (SOFT GATE)  12. Domain wiring
+5. Auth wiring                      13. Analytics
+6. Backend + data                   14. Sentry
+7. Bulk app build                   15. Final QA + handoff
 ```
 
 ## Kit conventions

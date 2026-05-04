@@ -1,24 +1,59 @@
+# Standard Next.js + env protections.
+# Do NOT remove .next/ or .env* — these prevent build-cache bloat in
+# git history and prevent accidental credentials leaks in committed
+# .env files. Hardened in the kit because every consumer app inherits
+# this file via degit.
+
 # nextjs-kit repo .gitignore
 # This kit ships as plain files via degit. The kit repo itself doesn't run
 # anything, but we still ignore standard noise.
+
+# Next.js
+.next/
+out/
+build/
+*.tsbuildinfo
+next-env.d.ts
+
+# Environment
+.env*
+!.env.example
 
 # OS
 .DS_Store
 Thumbs.db
 
 # Editor
-.vscode/
+.vscode/*
+!.vscode/extensions.json
 .idea/
 *.swp
 *.swo
 
+# Vercel
+.vercel
+
+# Convex
+.convex/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
 # Local agent / claude files
 .claude/cache/
 .claude/local/
-*.log
 
-# Node (in case kit dev work pulls in node modules accidentally)
+# Dependencies
 node_modules/
+.pnp
+.pnp.js
+
+# Testing
+coverage/
 
 # Backup / scratch
 *.bak

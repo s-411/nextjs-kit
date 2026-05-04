@@ -1,0 +1,26 @@
+# nextjs-kit repo .gitignore
+# This kit ships as plain files via degit. The kit repo itself doesn't run
+# anything, but we still ignore standard noise.
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Local agent / claude files
+.claude/cache/
+.claude/local/
+*.log
+
+# Node (in case kit dev work pulls in node modules accidentally)
+node_modules/
+
+# Backup / scratch
+*.bak
+*.tmp
+/tmp/

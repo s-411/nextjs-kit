@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  /* Chasing Optimum — 75 Hard redesign tokens
+     Pulled from the Claude Design bundle (75hard/canvas.html). */
+
+  /* Surfaces */
+  --color-co-dark: #1d1d1d;
+  --color-co-light: #f5f3ee;
+  --color-co-card: #262626;
+  --color-co-divider: #2e2e2e;
+  --color-co-hairline-dark: #2a2a2a;
+  --color-co-hairline-light: #e5e5e5;
+
+  /* Brand */
+  --color-co-orange: #fe6f3d;
+  --color-co-on-orange: #000000;
+
+  /* Text */
+  --color-co-fg: #ffffff;
+  --color-co-fg-muted: #a0a4aa;
+  --color-co-success: #2ba84a;
+
+  /* Typography */
+  --font-display: "Anton", system-ui, sans-serif;
+  --font-body: "Poppins", system-ui, sans-serif;
+}
+
+@font-face {
+  font-family: "Anton";
+  src: url("/75hard/fonts/Anton-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/75hard/fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+html,
+body {
+  background: var(--color-co-dark);
+  color: var(--color-co-fg);
+  font-family: var(--font-body);
+}

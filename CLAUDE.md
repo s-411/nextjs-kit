@@ -6,18 +6,18 @@
 
 ## This app
 
-- **Name:** <APP NAME>
-- **Purpose:** <ONE SENTENCE — what does this app do and for whom>
-- **Slug:** <slug>
-- **Domain:** <domain or 'tbd'>
-- **Auth:** <Clerk | Convex Auth>
-- **Database:** <Convex | none>
-- **Billing:** <Stripe | Clerk Billing | none>
-- **Email:** <Resend | none>
-- **Analytics:** <Vercel only | Vercel + PostHog>
-- **Sentry:** <yes | defer>
-- **Current stage:** <0–15, per PROCESS_GUIDE.md>
-- **Status:** <NEW | EXISTING-anchor-screens | EXISTING-tokenized | EXISTING-prelaunch>
+- **Name:** 75 Hard — Chasing Optimum Redesign
+- **Purpose:** Rebrand of the 75 Hard daily-checklist app in the Chasing Optimum visual system (dark mode, Anton + Poppins, orange pill CTAs).
+- **Slug:** nextjs-kit
+- **Domain:** tbd
+- **Auth:** tbd
+- **Database:** tbd
+- **Billing:** tbd
+- **Email:** tbd
+- **Analytics:** Vercel only
+- **Sentry:** defer
+- **Current stage:** 2 — Reference Ingestion (Claude Design canvas dropped into `public/75hard/`)
+- **Status:** NEW
 
 ---
 
@@ -81,9 +81,9 @@ Stop. Ask. Don't guess. The cost of asking is 30 seconds; the cost of guessing w
 
 | Stage | Completed | Notes |
 |-------|:-:|-------|
-| 0. Stack lock | ☐ | |
-| 1. Repo spin-up | ☐ | |
-| 2. Reference ingestion | ☐ | |
+| 0. Stack lock | ☐ | Stack TBD — design canvas implemented ahead of stack lock. |
+| 1. Repo spin-up | ✅ | Minimal Next.js 15 + Tailwind v4 app scaffolded in this repo. |
+| 2. Reference ingestion | ✅ | Claude Design bundle (`F7ncI09PFWPmmLl8lB1hEw`) extracted to `public/75hard/`; canvas served at `/75hard/canvas.html`. |
 | 3. First screens (1-4 anchor) | ☐ | |
 | 4. Tokenization (HARD GATE) | ☐ | |
 | 4.5. Component library + brand guidelines | ☐ | |
